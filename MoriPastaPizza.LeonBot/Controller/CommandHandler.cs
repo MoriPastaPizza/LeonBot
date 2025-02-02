@@ -16,12 +16,14 @@ namespace MoriPastaPizza.LeonBot.Controller
         private readonly DiscordSocketClient _client;
         private readonly CommandService _commService;
         private readonly ILogger<CommandHandler> _logger;
+        private readonly IServiceProvider _serviceProvider;
 
-        public CommandHandler(DiscordSocketClient client, CommandService commService, ILogger<CommandHandler> logger)
+        public CommandHandler(DiscordSocketClient client, CommandService commService, ILogger<CommandHandler> logger, IServiceProvider serviceProvider)
         {
             _client = client;
             _commService = commService;
             _logger = logger;
+            _serviceProvider = serviceProvider;
         }
 
         public async Task StartCommandHandler()
@@ -29,7 +31,7 @@ namespace MoriPastaPizza.LeonBot.Controller
             _client.MessageReceived += ClientOnMessageReceived;
 
             await _commService.AddModulesAsync(assembly: Assembly.GetEntryAssembly(),
-                services: null);
+                services: _serviceProvider);
         }
 
         private async Task ClientOnMessageReceived(SocketMessage messageParam)
@@ -47,7 +49,7 @@ namespace MoriPastaPizza.LeonBot.Controller
 
             var context = new SocketCommandContext(_client, message);
 
-            await _commService.ExecuteAsync(context: context, argPos: argPos, services: null);
+            await _commService.ExecuteAsync(context: context, argPos: argPos, services: _serviceProvider);
         }
     }
 }
