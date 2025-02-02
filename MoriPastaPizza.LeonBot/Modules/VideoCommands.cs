@@ -22,7 +22,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         }
 
         [Command("ossi")]
-        [Alias("pfui", "ostne", "osten", "dresden", "dynamo")]
+        [Alias("pfui", "ostne", "osten", "dresden", "dynamo", "ronny")]
         [MediaGroup("spucken")]
         public async Task SendOssi()
         {
@@ -81,6 +81,71 @@ namespace MoriPastaPizza.LeonBot.Modules
         public async Task SendBier([Remainder] int index = 0)
         {
             await SendMedia("bier", index);
+        }
+
+        [Command("blauesauge")]
+        [Alias("blau", "blaues", "auge", "schlägerei")]
+        public async Task SendBlauesAuge()
+        {
+            await SendMedia("blauesauge.mp4");
+        }
+
+        [Command("corona")]
+        [Alias("gorona", "gesund", "infektion")]
+        public async Task SendCorona()
+        {
+            await SendMedia("corona.mp4");
+        }
+
+        [Command("datenschutz")]
+        [Alias("datengeheimniss", "daten", "datenschutzverletzung")]
+        public async Task SendDatenschutz()
+        {
+            await SendMedia("datenschutz.mp4");
+        }
+
+        [Command("dreckssack")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendDreckssack()
+        {
+            await SendMedia("dreckssack.mp4");
+        }
+
+        [Command("dreckssau")]
+        [Alias("stinkekaktus", "kaktus", "frank", "treiber", "frank treiber")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendDreckssau()
+        {
+            await SendMedia("dreckssau.mp4");
+        }
+
+        [Command("ehre")]
+        [Alias("hobe die ehre", "hobe", "habe die ehre")]
+        public async Task SendEhre()
+        {
+            await SendMedia("ehre.mp4");
+        }
+
+        [Command("fanclub")]
+        [Alias("mauthausen")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendFanclub()
+        {
+            await SendMedia("fanclub.mp4");
+        }
+
+        [Command("flucht")]
+        [Alias("gnade euch gott")]
+        public async Task SendFlucht()
+        {
+            await SendMedia("flucht.mp4");
+        }
+
+        [Command("gendermarie")]
+        [Alias("gender", "marie", "gendarmerie", "polizei")]
+        public async Task SendGender()
+        {
+            await SendMedia("gendermarie.mp4");
         }
 
         [Command("spucken")]
