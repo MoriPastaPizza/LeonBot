@@ -373,10 +373,17 @@ namespace MoriPastaPizza.LeonBot.Modules
         }
 
         [Command("spucken")]
+        [Alias("spuck")]
         public async Task Spucken([Remainder] int index = 0)
         {
-            var methods = _mediaGroupController.GetMethodsForGroup("spucken");
-            ;
+            await SendMediaFromMethodGroup("spucken", index);
+        }
+
+        [Command("hater")]
+        [Alias("haider")]
+        public async Task Hater([Remainder] int index = 0)
+        {
+            await SendMediaFromMethodGroup("hater", index);
         }
 
 
@@ -396,6 +403,29 @@ namespace MoriPastaPizza.LeonBot.Modules
                 try
                 {
                     await Context.Channel.SendFileAsync(GetAllMedia(basePath)[index - 1]);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    await Context.Message.ReplyAsync(
+                        "Des Video gibt's net du Spinner! Da hat der Zimmermann kei Loch gelassen!");
+                }
+            }
+        }
+
+        private async Task SendMediaFromMethodGroup(string methodGroup, int index)
+        {
+            var methods = _mediaGroupController.GetMethodsForGroup(methodGroup).ToList();
+            if (index == 0)
+            {
+                var method = methods[Random.Shared.Next(0, methods.Count)];
+                method.Invoke(this, null);
+            }
+            else
+            {
+                try
+                {
+                    var method = methods[index - 1];
+                    method.Invoke(this, null);
                 }
                 catch (ArgumentOutOfRangeException)
                 {

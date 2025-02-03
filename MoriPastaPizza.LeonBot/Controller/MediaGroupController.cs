@@ -54,9 +54,9 @@ namespace MoriPastaPizza.LeonBot.Controller
             }
         }
 
-        public IEnumerable<MethodInfo>? GetMethodsForGroup(string group)
+        public IEnumerable<MethodInfo> GetMethodsForGroup(string group)
         {
-            return _groups.GetValueOrDefault(group);
+            return _groups.GetValueOrDefault(group) ?? new List<MethodInfo>();
         }
     }
 }
