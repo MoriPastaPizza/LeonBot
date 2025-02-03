@@ -148,6 +148,230 @@ namespace MoriPastaPizza.LeonBot.Modules
             await SendMedia("gendermarie.mp4");
         }
 
+        [Command("gericht")]
+        public async Task SendGericht()
+        {
+            await SendMedia("gericht.mp4");
+        }
+
+        [Command("gott")]
+        [Alias("gläubig", "essen spielen")]
+        public async Task SendGott()
+        {
+            await SendMedia("gott.mp4");
+        }
+
+
+        [Command("hanswurst")]
+        [Alias("klatsche", "vogel")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendHanswurst()
+        {
+            await SendMedia("hanswurst.mp4");
+        }
+
+        [Command("homosexuell")]
+        [Alias("schwul", "tänze", "runterholen", "pervers", "homo")]
+        [MediaGroup("spucken")]
+        public async Task SendHomoSexuell()
+        {
+            await SendMedia("homosexuell.mp4");
+        }
+
+        [Command("kamera")]
+        [Alias("verbot")]
+        public async Task SendKamera()
+        {
+            await SendMedia("kamera.mp4");
+        }
+
+        [Command("kinder")]
+        [Alias("kind", "bluten")]
+        public async Task SendKinder()
+        {
+            await SendMedia("kinder.mp4");
+        }
+
+        [Command("kinderschänder")]
+        [Alias("verbrecher")]
+        public async Task SendKinderschänder()
+        {
+            await SendMedia("kinderschänder.mp4");
+        }
+
+        [Command("lachen")]
+        [Alias("lol", "lache")]
+        public async Task SendLachen()
+        {
+            await SendMedia("lachen.mp4");
+        }
+
+        [Command("lifestyle")]
+        public async Task SendLifeStyle()
+        {
+            await SendMedia("lifestyle.mp4");
+        }
+
+        [Command("kotzen")]
+        public async Task SendKotzen()
+        {
+            await SendMedia("kotzen.mp4");
+        }
+
+        [Command("mett")]
+        [Alias("zündeln", "zündelt", "windmühle")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendMett()
+        {
+            await SendMedia("mett.mp4");
+        }
+
+        [Command("mittelfinger")]
+        public async Task SendMittelfinger([Remainder] int index = 0)
+        {
+            await SendMedia("mittelfinger", index);
+        }
+
+        [Command("oger")]
+        [Alias("emskirchen", "verwirrt")]
+        public async Task SendOger()
+        {
+            await SendMedia("oger.mp4");
+        }
+
+        [Command("nix")]
+        public async Task SendNix()
+        {
+            await SendMedia("nix.mp4");
+        }
+
+        [Command("rebekka")]
+        [Alias("wing", "rebekka wing", "rebeka", "rebecca", "24h", "klo")]
+        public async Task SendRebekka()
+        {
+            await SendMedia("rebekka.mp4");
+        }
+
+        [Command("reisstdiehütteab")]
+        [Alias("schlager", "laune", "reiss", "reisstdiehütteab")]
+        public async Task ReissDieHütteAb()
+        {
+            await SendMedia("reisstdiehütteab.mp4");
+        }
+
+        [Command("normal")]
+        public async Task SendNormal()
+        {
+            await SendMedia("normal.mp4");
+        }
+
+        [Command("residental")]
+        [Alias("suburbs", "bus", "englisch")]
+        public async Task SendResidental()
+        {
+            await SendMedia("residental.mp4");
+        }
+
+        [Command("schwein")]
+        [Alias("tage gezählt", "tage", "pfeift", "lied", "absturz")]
+        public async Task SendSchwein()
+        {
+            await SendMedia("schwein.mp4");
+        }
+
+        [Command("siemens")]
+        public async Task SendSiemens()
+        {
+            await SendMedia("siemens.mp4");
+        }
+
+        [Command("söder")]
+        [Alias("soeder", "beil", "axt", "wald")]
+        public async Task SendSöder()
+        {
+            await SendMedia("söder.mp4");
+        }
+
+        [Command("speien")]
+        public async Task SendSpeien()
+        {
+            await SendMedia("speien.mp4");
+        }
+
+        [Command("spital")]
+        [Alias("suff", "alder")]
+        public async Task SendSpital()
+        {
+            await SendMedia("spital.mp4");
+        }
+
+        [Command("staatsanwalt")]
+        [Alias("anwalt")]
+        public async Task SendAndwalt()
+        {
+            await SendMedia("staatsanwalt.mp4");
+        }
+
+        [Command("staatsbürger")]
+        [Alias("staatsbürgerschaft", "jonglieren")]
+        [MediaGroup("haider"), MediaGroup("hater")]
+        public async Task SendStaatsbürger()
+        {
+            await SendMedia("staatsbürger.mp4");
+        }
+
+        [Command("strauss")]
+        [Alias("strauß", "franz joseph")]
+        public async Task SendStrauß()
+        {
+            await SendMedia("strauss.mp4");
+        }
+
+        [Command("streiken")]
+        [Alias("streik")]
+        public async Task SendStreiken()
+        {
+            await SendMedia("streiken.mp4");
+        }
+
+        [Command("unwiderstehlich")]
+        public async Task SendUnwiderstehlich()
+        {
+            await SendMedia("unwiderstehlich.mp4");
+        }
+
+        [Command("unzwam")]
+        public async Task SendUnzwam([Remainder] int index = 0)
+        {
+            await SendMedia("unzwam", index);
+        }
+
+        [Command("viper")]
+        [Alias("weiper", "weipa")]
+        public async Task SendViper()
+        {
+            await SendMedia("viper.mp4");
+        }
+
+        [Command("wichsfresse")]
+        public async Task SendWichsfresse()
+        {
+            await SendMedia("wichsfresse.mp4");
+        }
+
+        [Command("würzburg")]
+        [Alias("wuerzburg", "regensburg", "layla")]
+        public async Task SendWürzburg()
+        {
+            await SendMedia("würzburg.mp4");
+        }
+
+        [Command("youtube")]
+        public async Task SendYoutube()
+        {
+            await SendMedia("youtube.mp4");
+        }
+
         [Command("spucken")]
         public async Task Spucken([Remainder] int index = 0)
         {

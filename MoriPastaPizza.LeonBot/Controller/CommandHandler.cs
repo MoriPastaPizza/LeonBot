@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,7 +50,12 @@ namespace MoriPastaPizza.LeonBot.Controller
 
             var context = new SocketCommandContext(_client, message);
 
-            await _commService.ExecuteAsync(context: context, argPos: argPos, services: _serviceProvider);
+            var res = await _commService.ExecuteAsync(context: context, argPos: argPos, services: _serviceProvider);
+            if (res.Error == CommandError.UnknownCommand)
+            {
+                await context.Message.ReplyAsync(
+                    "Den Befehl gibt's net du Spinner! Da hat der Zimmermann kei Loch gelassen!");
+            }
         }
     }
 }
