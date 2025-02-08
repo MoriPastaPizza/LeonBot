@@ -434,13 +434,13 @@ namespace MoriPastaPizza.LeonBot.Modules
             }
         }
 
-        private static string GetRandomMedia(string baseName)
+        public static string GetRandomMedia(string baseName)
         {
             var videos = GetAllMedia(baseName);
             return videos[Random.Shared.Next(0, videos.Count)];
         }
 
-        private static List<string> GetAllMedia(string baseName)
+        public static List<string> GetAllMedia(string baseName)
         {
             return Directory.EnumerateFiles(Constants.MediaBasePath, baseName + "*").ToList();
         }

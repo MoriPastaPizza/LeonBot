@@ -9,8 +9,11 @@
 
   <ItemGroup>
     <Compile Remove="Global\Constants\**" />
+    <Compile Remove="Helper\**" />
     <EmbeddedResource Remove="Global\Constants\**" />
+    <EmbeddedResource Remove="Helper\**" />
     <None Remove="Global\Constants\**" />
+    <None Remove="Helper\**" />
   </ItemGroup>
 
   <ItemGroup>

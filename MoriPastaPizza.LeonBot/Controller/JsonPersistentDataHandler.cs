@@ -67,5 +67,25 @@ namespace MoriPastaPizza.LeonBot.Controller
                 File.WriteAllText(FilePath, JsonSerializer.Serialize(userList, options: SerializerOptions));
             }
         }
+
+        public IEnumerable<User>? GetAllUsers()
+        {
+            lock (Lock)
+            {
+                try
+                {
+                    var usersRaw = File.ReadAllText(FilePath);
+                    if (usersRaw == string.Empty)
+                        return null;
+                    var userList = JsonSerializer.Deserialize<List<User>>(usersRaw);
+                    return userList ?? null;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, nameof(GetAllUsers));
+                    return null;
+                }
+            }
+        }
     }
 }
