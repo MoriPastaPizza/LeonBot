@@ -4,6 +4,7 @@ using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MoriPastaPizza.LeonBot.Controller;
+using MoriPastaPizza.LeonBot.Interfaces;
 using MoriPastaPizza.LeonBot.Modules;
 using Serilog;
 
@@ -23,6 +24,7 @@ public class Program
         var commands = _serviceProvider.GetRequiredService<CommandService>();
         _logger = _serviceProvider.GetRequiredService<ILogger<Program>>();
         var mediaGroupController = _serviceProvider.GetRequiredService<MediaGroupController>();
+
 
         mediaGroupController.StartMediaGroupController();
 
@@ -71,6 +73,9 @@ public class Program
     {
         var commandHandler = _serviceProvider.GetRequiredService<CommandHandler>();
         await commandHandler.StartCommandHandler();
+
+        var birthdayController = _serviceProvider.GetRequiredService<BirthdayCommands>();
+        await birthdayController.StartModule();
     }
 
     private static IServiceProvider CreateServices()
@@ -105,7 +110,9 @@ public class Program
             .AddSingleton<DiscordSocketClient>()
             .AddSingleton<CommandHandler>()
             .AddSingleton<CommandService>()
-            .AddSingleton<MediaGroupController>();
+            .AddSingleton<MediaGroupController>()
+            .AddSingleton<BirthdayCommands>()
+            .AddSingleton<IPersistentDataHandler, JsonPersistentDataHandler>();
 
         return collection.BuildServiceProvider();
     }

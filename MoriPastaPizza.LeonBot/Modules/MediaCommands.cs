@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Discord;
+﻿using Discord;
 using Discord.Commands;
 using Microsoft.Extensions.Logging;
 using MoriPastaPizza.LeonBot.Attributes;
@@ -12,13 +7,17 @@ using MoriPastaPizza.LeonBot.Global;
 
 namespace MoriPastaPizza.LeonBot.Modules
 {
-    public class VideoCommands : ModuleBase<SocketCommandContext>
+    public class MediaCommands : ModuleBase<SocketCommandContext>
     {
         private readonly MediaGroupController _mediaGroupController;
+        private readonly ILogger<MediaCommands> _logger;
 
-        public VideoCommands(MediaGroupController mediaGroupController)
+        public MediaCommands(MediaGroupController mediaGroupController, ILogger<MediaCommands> logger)
         {
             _mediaGroupController = mediaGroupController;
+            _logger = logger;
+
+            _logger.LogInformation("Starting: " + nameof(MediaCommands));
         }
 
         [Command("ossi")]

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoriPastaPizza.LeonBot.Attributes
+﻿namespace MoriPastaPizza.LeonBot.Attributes
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class MediaGroupAttribute : Attribute

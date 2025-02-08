@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace MoriPastaPizza.LeonBot.Controller
@@ -29,6 +23,7 @@ namespace MoriPastaPizza.LeonBot.Controller
 
         public async Task StartCommandHandler()
         {
+            _logger.LogInformation("Starting: " + nameof(CommandHandler));
             _client.MessageReceived += ClientOnMessageReceived;
 
             await _commService.AddModulesAsync(assembly: Assembly.GetEntryAssembly(),

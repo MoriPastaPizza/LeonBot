@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace MoriPastaPizza.LeonBot.Models
 {
@@ -13,6 +8,12 @@ namespace MoriPastaPizza.LeonBot.Models
         public ulong Id { get; set; }
 
         [JsonInclude]
-        public string NickName { get; set; }
+        public string NickName { get; set; } = string.Empty;
+
+        [JsonInclude] 
+        public DateTime? Birthday { get; set; } = null;
+
+        [JsonInclude]
+        public int BirthdayVideoIndex { get; set; }
     }
 }
