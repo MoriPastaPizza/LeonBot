@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Discord;
+﻿using Discord;
 using Discord.Commands;
-using Discord.WebSocket;
-using Microsoft.Extensions.Logging;
-using MoriPastaPizza.LeonBot.Global;
 
 namespace MoriPastaPizza.LeonBot.Modules
 {
@@ -22,6 +14,13 @@ namespace MoriPastaPizza.LeonBot.Modules
                 .WithButton("Geburtstags Gruß", "btn-birthday");
 
             await ReplyAsync("Worüber möchtest du mehr erfahren?", components: builder.Build());
+        }
+
+        [RequireOwner]
+        [Command("status")]
+        public async Task SetStatus([Remainder] string status)
+        {
+            await Context.Client.SetCustomStatusAsync(status);
         }
     }
 }

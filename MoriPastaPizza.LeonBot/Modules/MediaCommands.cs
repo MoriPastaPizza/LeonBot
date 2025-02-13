@@ -1,6 +1,5 @@
 ﻿using Discord;
 using Discord.Commands;
-using Microsoft.Extensions.Logging;
 using MoriPastaPizza.LeonBot.Attributes;
 using MoriPastaPizza.LeonBot.Controller;
 using MoriPastaPizza.LeonBot.Global;
@@ -11,7 +10,7 @@ namespace MoriPastaPizza.LeonBot.Modules
     {
         private readonly MediaGroupController _mediaGroupController;
 
-        public MediaCommands(MediaGroupController mediaGroupController, ILogger<MediaCommands> logger)
+        public MediaCommands(MediaGroupController mediaGroupController)
         {
             _mediaGroupController = mediaGroupController;
         }

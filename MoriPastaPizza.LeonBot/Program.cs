@@ -1,4 +1,5 @@
-﻿using Discord;
+﻿using System.Reflection;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +37,11 @@ public class Program
         await client.LoginAsync(TokenType.Bot, token);
 
         await client.StartAsync();
+
+        var version = Assembly.GetExecutingAssembly().GetName().Version;
+        var versionString = $"Running {version?.Major}.{version?.Minor}.{version?.Build}";
+
+        await client.SetCustomStatusAsync(versionString);
 
         await Task.Delay(-1);
     }
