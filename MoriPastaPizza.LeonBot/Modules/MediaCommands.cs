@@ -10,14 +10,10 @@ namespace MoriPastaPizza.LeonBot.Modules
     public class MediaCommands : ModuleBase<SocketCommandContext>
     {
         private readonly MediaGroupController _mediaGroupController;
-        private readonly ILogger<MediaCommands> _logger;
 
         public MediaCommands(MediaGroupController mediaGroupController, ILogger<MediaCommands> logger)
         {
             _mediaGroupController = mediaGroupController;
-            _logger = logger;
-
-            _logger.LogInformation("Starting: " + nameof(MediaCommands));
         }
 
         [Command("ossi")]

@@ -79,6 +79,9 @@ public class Program
 
         var birtdhayController = _serviceProvider.GetRequiredService<BirthdayController>();
         birtdhayController.StartBirthdayController();
+
+        var globalCommandsController = _serviceProvider.GetRequiredService<GlobalCommandsController>();
+        globalCommandsController.StartModule();
     }
 
     private static IServiceProvider CreateServices()
@@ -116,7 +119,8 @@ public class Program
             .AddSingleton<MediaGroupController>()
             .AddSingleton<BirthdayCommands>()
             .AddSingleton<IPersistentDataHandler, JsonPersistentDataHandler>()
-            .AddSingleton<BirthdayController>();
+            .AddSingleton<BirthdayController>()
+            .AddSingleton<GlobalCommandsController>();
 
         return collection.BuildServiceProvider();
     }

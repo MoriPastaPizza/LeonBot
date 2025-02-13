@@ -1,6 +1,7 @@
 ﻿using Discord;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
+using MoriPastaPizza.LeonBot.Global;
 using MoriPastaPizza.LeonBot.Interfaces;
 using MoriPastaPizza.LeonBot.Models;
 
@@ -59,7 +60,7 @@ namespace MoriPastaPizza.LeonBot.Modules
                 .WithDescription("Bekomme Info über deinen Geburtstagsgruß");
 
 
-            var guild = _client.GetGuild(1334797882712395857);
+            var guild = _client.GetGuild(Constants.ServerId);
             var commands = await guild.GetApplicationCommandsAsync();
             
             foreach (var command in commands)
