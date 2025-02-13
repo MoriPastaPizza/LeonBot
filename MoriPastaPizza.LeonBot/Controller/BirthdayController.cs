@@ -1,6 +1,7 @@
 ﻿using Discord;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
+using MoriPastaPizza.LeonBot.Global;
 using MoriPastaPizza.LeonBot.Interfaces;
 using MoriPastaPizza.LeonBot.Models;
 using MoriPastaPizza.LeonBot.Modules;
@@ -15,7 +16,6 @@ namespace MoriPastaPizza.LeonBot.Controller
         private readonly DiscordSocketClient _client;
         private readonly Timer _timer;
 
-        private const ulong BirthdayChannelId = 1334797885044293725;
 
         public BirthdayController(ILogger<BirthdayController> logger, IPersistentDataHandler persistentDataHandler, DiscordSocketClient client)
         {
@@ -62,7 +62,7 @@ namespace MoriPastaPizza.LeonBot.Controller
         {
             try
             {
-                if (_client.GetChannel(BirthdayChannelId) is not IMessageChannel channel)
+                if (_client.GetChannel(Constants.BirthdayChannelId) is not IMessageChannel channel)
                 {
                     _logger.LogWarning("Birthday channel not found");
                     return;
