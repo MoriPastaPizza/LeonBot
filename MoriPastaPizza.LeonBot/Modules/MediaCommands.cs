@@ -380,10 +380,17 @@ namespace MoriPastaPizza.LeonBot.Modules
             await SendMediaFromMethodGroup("hater", index);
         }
 
-
-        private async Task SendMedia(string name)
+        [Command("weiter")]
+        [Alias("weider", "weida")]
+        public async Task SendUndWeiter()
         {
-            await Context.Channel.SendFileAsync(Constants.MediaBasePath + name);
+            await SendMedia("unweida.webp", true);
+        }
+
+
+        private async Task SendMedia(string name, bool isSpoiler = false)
+        {
+            await Context.Channel.SendFileAsync(Constants.MediaBasePath + name, isSpoiler: isSpoiler);
         }
 
         private async Task SendMedia(string basePath, int index)
