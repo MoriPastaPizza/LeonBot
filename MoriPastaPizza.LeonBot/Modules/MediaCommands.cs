@@ -3,6 +3,7 @@ using Discord.Commands;
 using MoriPastaPizza.LeonBot.Attributes;
 using MoriPastaPizza.LeonBot.Controller;
 using MoriPastaPizza.LeonBot.Global;
+using System.Xml.Linq;
 
 namespace MoriPastaPizza.LeonBot.Modules
 {
@@ -381,10 +382,23 @@ namespace MoriPastaPizza.LeonBot.Modules
         }
 
         [Command("weiter")]
-        [Alias("weider", "weida")]
+        [Alias("weider", "weida", "weiter?", "weider?", "weida?")]
         public async Task SendUndWeiter()
         {
             await SendMedia("unweida.webp", true);
+        }
+
+        [Command("weida nuke")]
+        [RequireOwner]
+        public async Task UndWeiterNuke([Remainder] int count = 2)
+        {
+            var files = new List<FileAttachment>();
+            for (var i = 0; i < count; i++)
+            {
+                files.Add(new FileAttachment(Constants.MediaBasePath + "unweida.webp", isSpoiler: true));
+            }
+
+            await Context.Channel.SendFilesAsync(files);
         }
 
 
