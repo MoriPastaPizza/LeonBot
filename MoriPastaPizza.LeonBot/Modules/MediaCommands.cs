@@ -4,17 +4,39 @@ using MoriPastaPizza.LeonBot.Attributes;
 using MoriPastaPizza.LeonBot.Controller;
 using MoriPastaPizza.LeonBot.Global;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace MoriPastaPizza.LeonBot.Modules
 {
     public class MediaCommands : ModuleBase<SocketCommandContext>
     {
         private readonly MediaGroupController _mediaGroupController;
+        private readonly CommandService _commService;
+        private readonly IServiceProvider _serviceProvider;
 
-        public MediaCommands(MediaGroupController mediaGroupController)
+        public MediaCommands(MediaGroupController mediaGroupController, CommandService commService, IServiceProvider serviceProvider)
         {
             _mediaGroupController = mediaGroupController;
+            _commService = commService;
+            _serviceProvider = serviceProvider;
+        }
+
+        [Command("random")]
+        [Alias("rnd", "zufall")]
+        public async Task SendZufall()
+        {
+            try
+            {
+                var module = _commService.Modules.FirstOrDefault(m => m.Name == "MediaCommands");
+                if (module != null)
+                {
+                    var command = module.Commands[Random.Shared.Next(0, module.Commands.Count)];
+                    await _commService.ExecuteAsync(Context, command.Name, _serviceProvider);
+                }
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         [Command("ossi")]
