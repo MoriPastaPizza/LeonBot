@@ -389,7 +389,8 @@ namespace MoriPastaPizza.LeonBot.Modules
         }
 
         [Command("weida nuke")]
-        [RequireOwner]
+        [RequireRole(831216370242945076)]
+        [RequireRole(935943281563553803)]
         public async Task UndWeiterNuke([Remainder] int count = 2)
         {
             var files = new List<FileAttachment>();
@@ -399,6 +400,12 @@ namespace MoriPastaPizza.LeonBot.Modules
             }
 
             await Context.Channel.SendFilesAsync(files);
+        }
+
+        [Command("schnauf")]
+        public async Task SendSchnauf()
+        {
+            await SendMedia("schnauf.webm");
         }
 
 
