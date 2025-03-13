@@ -3,6 +3,7 @@ using Discord.Commands;
 using MoriPastaPizza.LeonBot.Attributes;
 using MoriPastaPizza.LeonBot.Controller;
 using MoriPastaPizza.LeonBot.Global;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace MoriPastaPizza.LeonBot.Modules
@@ -408,6 +409,52 @@ namespace MoriPastaPizza.LeonBot.Modules
             await SendMedia("schnauf.webm");
         }
 
+        [Command("bombe")]
+        [Alias("atom", "atomkrieg", "1945", "bunker")]
+        public async Task SendBombe()
+        {
+            await SendMedia("bombe.mp4");
+        }
+
+        [Command("geil")]
+        [Alias("geilsten")]
+        public async Task Sendgeil()
+        {
+            await SendMedia("geil.mp4");
+        }
+
+        [Command("geist")]
+        [Alias("knirsch")]
+        public async Task SendGeist()
+        {
+            await SendMedia("geist.mp4");
+        }
+
+        [Command("bundestag")]
+        [Alias("faschismus")]
+        public async Task SendBundestag()
+        {
+            await SendMedia("bundestag.mp4");
+        }
+
+        [Command("ddr")]
+        public async Task SendDdr()
+        {
+            await Context.Channel.SendFileAsync(Constants.MediaBasePath + "ddr.mp4", "<:Dynamo:1017680244699828287>");
+        }
+
+        [Command("augenfieber")]
+        [Alias("salzsäure")]
+        public async Task SendAugenfieber()
+        {
+            await SendMedia("augenfieber.mp4");
+        }
+
+        [Command("durchficken")]
+        public async Task SendDurchficken()
+        {
+            await SendMedia("durchficken.mp4");
+        }
 
         private async Task SendMedia(string name, bool isSpoiler = false)
         {
@@ -465,7 +512,9 @@ namespace MoriPastaPizza.LeonBot.Modules
 
         public static List<string> GetAllMedia(string baseName)
         {
-            return Directory.EnumerateFiles(Constants.MediaBasePath, baseName + "*").ToList();
+            int? Sorter(string fileName) => int.TryParse(Regex.Match(Path.GetFileName(fileName), @"\d+").Value, out var value) ? (int?)value : null;
+            var files = Directory.EnumerateFiles(Constants.MediaBasePath, baseName + "*").OrderBy(Sorter).ToList();
+            return files;
         }
     }
 }
