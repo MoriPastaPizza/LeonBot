@@ -214,7 +214,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         [Alias("verbrecher")]
         public async Task SendKinderschänder()
         {
-            await SendMedia("kinderschänder.mp4");
+            await SendMedia("kinderschaender.mp4");
         }
 
         [Command("lachen")]
@@ -274,7 +274,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         [Alias("schlager", "laune", "reiss", "reisstdiehütteab")]
         public async Task ReissDieHütteAb()
         {
-            await SendMedia("reisstdiehütteab.mp4");
+            await SendMedia("reisstdiehuetteab.mp4");
         }
 
         [Command("normal")]
@@ -307,7 +307,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         [Alias("soeder", "beil", "axt", "wald")]
         public async Task SendSöder()
         {
-            await SendMedia("söder.mp4");
+            await SendMedia("soeder.mp4");
         }
 
         [Command("speien")]
@@ -335,7 +335,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         [MediaGroup("haider"), MediaGroup("hater")]
         public async Task SendStaatsbürger()
         {
-            await SendMedia("staatsbürger.mp4");
+            await SendMedia("staatsbuerger.mp4");
         }
 
         [Command("strauss")]
@@ -381,7 +381,7 @@ namespace MoriPastaPizza.LeonBot.Modules
         [Alias("wuerzburg", "regensburg", "layla")]
         public async Task SendWürzburg()
         {
-            await SendMedia("würzburg.mp4");
+            await SendMedia("wuerzburg.mp4");
         }
 
         [Command("youtube")]
