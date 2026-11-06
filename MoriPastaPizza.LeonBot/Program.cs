@@ -80,10 +80,10 @@ public class Program
         await commandHandler.StartCommandHandler();
 
         var birthdayCommands = _serviceProvider.GetRequiredService<BirthdayCommands>();
-        await birthdayCommands.StartModule();
+        //await birthdayCommands.StartModule();
 
         var birtdhayController = _serviceProvider.GetRequiredService<BirthdayController>();
-        birtdhayController.StartBirthdayController();
+        //birtdhayController.StartBirthdayController();
 
         var globalCommandsController = _serviceProvider.GetRequiredService<GlobalCommandsController>();
         globalCommandsController.StartModule();
