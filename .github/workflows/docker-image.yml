@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -f Dockerfile -t "$IMAGE:latest" .
+        run: docker build -f MoriPastaPizza.LeonBot/Dockerfile -t "$IMAGE:latest" .
 
       - name: Push Docker image
         if: github.event_name == 'push'
