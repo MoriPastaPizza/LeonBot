@@ -79,10 +79,10 @@ public class Program
         var commandHandler = _serviceProvider.GetRequiredService<CommandHandler>();
         await commandHandler.StartCommandHandler();
 
-        var birthdayCommands = _serviceProvider.GetRequiredService<BirthdayCommands>();
+        //var birthdayCommands = _serviceProvider.GetRequiredService<BirthdayCommands>();
         //await birthdayCommands.StartModule();
 
-        var birtdhayController = _serviceProvider.GetRequiredService<BirthdayController>();
+        //var birtdhayController = _serviceProvider.GetRequiredService<BirthdayController>();
         //birtdhayController.StartBirthdayController();
 
         var globalCommandsController = _serviceProvider.GetRequiredService<GlobalCommandsController>();
@@ -122,9 +122,9 @@ public class Program
             .AddSingleton<CommandHandler>()
             .AddSingleton<CommandService>()
             .AddSingleton<MediaGroupController>()
-            .AddSingleton<BirthdayCommands>()
+            //.AddSingleton<BirthdayCommands>()
             .AddSingleton<IPersistentDataHandler, JsonPersistentDataHandler>()
-            .AddSingleton<BirthdayController>()
+            //.AddSingleton<BirthdayController>()
             .AddSingleton<GlobalCommandsController>();
 
         return collection.BuildServiceProvider();
