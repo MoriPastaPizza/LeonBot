@@ -32,9 +32,8 @@ public class Program
         client.Ready += ClientOnReady;
         client.Log += OnLog;
         commands.Log += OnLog;
-
-        var token = await File.ReadAllTextAsync("./bot_token.txt");
-        await client.LoginAsync(TokenType.Bot, token);
+        
+        await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("botToken"));
 
         await client.StartAsync();
 
